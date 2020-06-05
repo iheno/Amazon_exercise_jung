@@ -21,19 +21,34 @@
     <!-- My Design System -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/prettify.css" />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <!-- For Amazon css -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/starRating.css" />
+
+    <script defer src="js/starRating.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=css&skin=desert"
+    ></script>
   </head>
 
   <body>
     <header class="headerWarp">
       <div class="header__inner">
-        <a href="#">Amazon Technical Test</a>
+        <a href="#">Technical Exercise</a>
       </div>
     </header>
 
     <div class="container">
-      <h1 class="HeadingTitle clearfix">HyeonOh Jung</h1>
+      <h1 class="HeadingTitle clearfix">Exercise</h1>
       <div class="container__side">
         <div class="container__side__menu">
           <a href="#" class="active">
@@ -57,6 +72,257 @@
         <div class="container__box clearfix">
           <div class="ds__details">
             <h2>Star Rating</h2>
+            <div class="star__warp">
+              <div class="star__rating">
+                <h1>Rate this picture!</h1>
+                <div class="star__picture">
+                  <div class="star__picture__cover"></div>
+                  <img
+                    src="https://source.unsplash.com/random/300x150"
+                    alt=""
+                  />
+                </div>
+                <ul class="star__rating__card" id="stars">
+                  <li class="star s1"><i class="fa fa-star"></i></li>
+                  <li class="star s2"><i class="fa fa-star"></i></li>
+                  <li class="star s3"><i class="fa fa-star"></i></li>
+                  <li class="star s4"><i class="fa fa-star"></i></li>
+                  <li class="star s5"><i class="fa fa-star"></i></li>
+                </ul>
+                <p class="starResult">What is your choice?</p>
+                <div class="starButton">
+                  <button class="next" onclick="changePicture()">
+                    Change the Picture!
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pre__box">
+              <h4>Code</h4>
+              <span class="codeTypes">JavaScript</span>
+              <pre class="prettyprint lang-css linenums m-b-80">
+              <code>
+'use strict';
+
+const starCard = document.querySelectorAll('#stars > .star');
+const starResult = document.querySelector('.starResult');
+const starEvent = ['click', 'mouseover', 'mouseout'];
+const changePicture = () => this.window.location.reload();
+
+// 1 ~ 5 stars
+for (let i = 0; i < starCard.length; i++) { 
+  starCard[i].rateValue=i + 1; 
+  starEvent.forEach((e) => starCard[i].addEventListener(e, showResult));
+  }
+
+  function showResult(e) {
+  // Event.type
+  const star = e.type;
+  const rateValue = this.rateValue;
+
+  if (star === 'click' && rateValue > 0) {
+    starResult.innerHTML = `<span>It's</span><em>${rateValue}</em><span>stars!</span>`;
+  }
+
+  // key and index
+  starCard.forEach((v, i) => {
+  // click, mouseover and mouseout
+  if (star === 'click') {
+    if (i < rateValue) { 
+      v.classList.add('amazonYellow'); 
+    } else { 
+      v.classList.remove('amazonYellow'); 
+    } 
+  } 
+  
+  if (star==='mouseover' ) { 
+    if (i < rateValue) { 
+      v.classList.add('amazonYellowHover'); 
+    } else {
+      v.classList.remove('amazonYellowHover'); 
+    } 
+  } 
+  
+  return star === 'mouseout' ? v.classList.remove('amazonYellowHover') : null; }); 
+}
+              </code>
+              </pre>
+            </div>
+
+            <div class="pre__box">
+              <span class="codeTypes">SCSS</span>
+              <pre class="prettyprint lang-css linenums m-b-80">
+              <code>
+/* star rating style */
+.star__warp {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font: {
+    family: Lucida Console, Courier, monospace;
+  }
+}
+
+.star__picture {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  overflow: hidden;
+  display: block;
+  img {
+    width: 100%;
+    border-radius: 2px;
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(120%);
+  }
+
+  &:hover {
+    img {
+      filter: brightness(100%);
+      transform: scale(2);
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: inherit;
+    border-radius: 2px;
+    background: {
+      color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.star__rating {
+  padding: 24px 24px 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(52, 58, 64, 0.15),
+  0 4px 8px 0 rgba(52, 58, 64, 0.15);
+  background: {
+    color: #ffffff;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0 0 10px 0;
+    font: {
+      size: 1.4rem;
+      weight: 400;
+    }
+    text-align: center;
+    color: #343434;
+  }
+
+  &__card {
+    margin: 0;
+    padding: 40px 0 36px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: {
+      color: #ffffff;
+    }
+
+    .star {
+      list-style: none;
+      padding: 0 3px 0 3px;
+      font: {
+        size: 4rem;
+      }
+      cursor: pointer;
+      color: #d6d6d6;
+
+      &:hover {
+        transition: 0.3s all;
+      }
+    }
+
+    .amazonYellow {
+      color: #eea75d;
+    }
+    .amazonYellowHover {
+      color: #eea75d;
+    }
+  }
+
+  .starResult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 2px;
+    background: {
+      color: #fbfbfb;
+    }
+    font: {
+      size: 1.4rem;
+    }
+
+  em {
+    font: {
+      size: 5rem;
+      style: normal;
+      weight: 600;
+    }
+    padding: 0 10px;
+    color: #eea75d;
+  }
+  span {
+    font: {
+      size: 1.1rem;
+    }
+    line-height: 1.1rem;
+    }
+  }
+
+  .starButton {
+    padding: 16px 0 0 0;
+    border-top: 1px solid #dee2e6;
+    .next {
+      width: 100%;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      outline: 0;
+      background: {
+        color: #51abf3;
+      }
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: #ffffff;
+      font: {
+        size: 1.5rem;
+        weight: 600;
+      }
+
+      &:hover {
+        background: {
+          color: #2b96ed;
+        }
+      }
+    }
+  }
+}
+              </code>
+              </pre>
+            </div>
           </div>
         </div>
       </div>

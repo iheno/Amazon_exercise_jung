@@ -1,0 +1,23 @@
+pre.prettyprint {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace,
+    sans-serif;
+}
+
+.prettyprint {
+  font-size: 1.2rem;
+}
+
+.prettyprint ol {
+  padding: 0.2rem 0 0.5rem 0.8rem;
+}
+
+.prettyprint ol.linenums > li {
+  list-style-type: decimal;
+  border-left: solid 1px #ebb15e;
+  padding-left: 0.5rem;
+}
+
+.prettyprint ol.linenums > li {
+  list-style-type: decimal;
+  list-style-type: decimal-leading-zero;
+}

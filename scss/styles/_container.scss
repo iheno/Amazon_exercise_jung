@@ -6,7 +6,7 @@
   color: var(--gray900);
 
   font: {
-    size: 2rem;
+    size: 1.6rem;
     weight: 600;
     family: Lucida Console, Courier, monospace;
   }
@@ -75,7 +75,7 @@
     padding: 0 16px;
 
     font: {
-      size: 1.4rem;
+      size: 1.3rem;
       weight: 600;
     }
 
@@ -155,6 +155,53 @@
   margin: {
     bottom: 8px;
   }
+}
+
+/* ==================== _details.scss ==================== */
+.ds__details {
+  min-height: 530px;
+  position: relative;
+  width: 100%;
+}
+
+.ds__details h2 {
+  text-align: left;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px dashed rgba(221, 221, 221, 0.5);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.ds__details .pre__box {
+  padding: 30px 24px 0 30px;
+}
+
+.ds__details .pre__box h4 {
+  font-size: 1.4rem;
+}
+
+.ds__details .pre__box h4 span {
+  padding-left: 10px;
+  color: var(--gray700);
+}
+
+.ds__details .pre__box .codeTypes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  padding-bottom: 2px;
+}
+
+.ds__details .pre__box .pre__img {
+  display: inline;
+}
+
+.ds__details .pre__box .pre__img img {
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1023px) {
