@@ -3,7 +3,7 @@
   display: block;
   width: 100%;
   margin: 0 auto;
-  color: var(--gray900);
+  color: #131921;
 
   font: {
     size: 1.6rem;
@@ -22,7 +22,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 40px 0 102px;
+  padding: 40px 0 100px;
   position: relative;
   width: 100%;
   display: flex;
@@ -31,8 +31,7 @@
 }
 
 .container__side {
-  color: var(--gray900);
-
+  color: #131921;
   width: 200px;
 }
 
@@ -79,10 +78,10 @@
       weight: 600;
     }
 
-    color: var(--gray900);
+    color: #131921;
 
     &:hover {
-      color: var(--gray900);
+      color: #131921;
 
       .profile__ico {
         opacity: 1;
@@ -96,7 +95,7 @@
         left: 4px solid var(--amazonYellow);
       }
 
-      color: var(--gray900);
+      color: #131921;
       padding: 0 15px;
 
       .profile__ico {
@@ -155,6 +154,7 @@
   margin: {
     bottom: 8px;
   }
+  padding: 0 0 50px 0;
 }
 
 /* ==================== _details.scss ==================== */
@@ -324,5 +324,13 @@
   .container__body {
     margin: 0;
     width: 100%;
+  }
+
+  .triangle__label {
+    display: none;
+  }
+
+  .pre__box {
+    display: none;
   }
 }
