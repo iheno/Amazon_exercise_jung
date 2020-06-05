@@ -108,7 +108,9 @@
 const starCard = document.querySelectorAll('#stars > .star');
 const starResult = document.querySelector('.starResult');
 const starEvent = ['click', 'mouseover', 'mouseout'];
-const changePicture = () => this.window.location.reload();
+const CHECKOVER = 'checkColor';
+const CHECKOUT = 'hoverColor';
+const changePicture = () => window.location.reload();
 
 // 1 ~ 5 stars
 for (let i = 0; i < starCard.length; i++) { 
@@ -125,26 +127,25 @@ for (let i = 0; i < starCard.length; i++) {
     starResult.innerHTML = `<span>It's</span><em>${rateValue}</em><span>stars!</span>`;
   }
 
-  // key and index
-  starCard.forEach((v, i) => {
+  starCard.forEach((el, index) => {
   // click, mouseover and mouseout
   if (star === 'click') {
-    if (i < rateValue) { 
-      v.classList.add('amazonYellow'); 
+    if (index < rateValue) { 
+      el.classList.add(CHECKOVER); 
     } else { 
-      v.classList.remove('amazonYellow'); 
+      el.classList.remove(CHECKOVER); 
     } 
   } 
   
   if (star==='mouseover' ) { 
-    if (i < rateValue) { 
-      v.classList.add('amazonYellowHover'); 
+    if (index < rateValue) { 
+      el.classList.add(CHECKOUT); 
     } else {
-      v.classList.remove('amazonYellowHover'); 
+      el.classList.remove(CHECKOUT); 
     } 
   } 
   
-  return star === 'mouseout' ? v.classList.remove('amazonYellowHover') : null; }); 
+  return star === 'mouseout' ? el.classList.remove(CHECKOUT) : null; }); 
 }
               </code>
               </pre>

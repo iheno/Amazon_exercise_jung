@@ -120,11 +120,11 @@ body {
   transition: 0.3s all;
 }
 
-.star__rating__card .amazonYellow {
+.star__rating__card .checkColor {
   color: #eea75d;
 }
 
-.star__rating__card .amazonYellowHover {
+.star__rating__card .hoverColor {
   color: #eea75d;
 }
 
