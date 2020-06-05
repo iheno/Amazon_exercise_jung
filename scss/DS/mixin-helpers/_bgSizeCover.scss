@@ -1,0 +1,45 @@
+/* ==================== bakcground-size: cover ====================  */
+$imgUrl: "../img/" !default;
+$myimg: "" !default;
+
+@mixin bgSizeCover($width, $height, $myimg) {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-top: calc(#{($height / $width * 100%)});
+  /* calc（image height / image weight * 100%） */
+
+  background: {
+    image: url($imgUrl + $myimg);
+    size: cover;
+    repeat: no-repeat;
+    position: center center;
+  }
+
+  object-fit: cover;
+}
+
+@mixin bgSizeCover2($width, $height, $image: null) {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-top: ($height / $width) * 100%;
+
+  @if $image !=null {
+    background: url($image) 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  object-fit: cover;
+}
+
+// export
+.custom-class {
+  @include bgSizeCover(960, 600, 'sample.jpg') //（image weight , image height , 'image type'） */
+}
+
+.custom-class2 {
+  @include bgSizeCover2(960, 600, '../img/sample.jpg') //（image weight , image height , 'image url'） */
+}

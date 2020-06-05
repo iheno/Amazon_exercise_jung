@@ -1,0 +1,13 @@
+/* -------------------- Utility classes -------------------- */
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  left: -9999px;
+  top: -9999px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

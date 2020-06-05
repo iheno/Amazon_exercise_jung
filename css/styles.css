@@ -1,0 +1,288 @@
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@ included @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@   mixin  @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@   SCSS   @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+/* ==================== _header.scss ==================== */
+.headerWarp {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 48px;
+  background-color: var(--white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(221, 221, 221, 0.5);
+  -ms-box-shadow: 0px 2px 4px 0px rgba(221, 221, 221, 0.5);
+  -o-box-shadow: 0px 2px 4px 0px rgba(221, 221, 221, 0.5);
+  box-shadow: 0px 2px 4px 0px rgba(221, 221, 221, 0.5);
+}
+
+.header__inner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 1140px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  padding: 0px 20px;
+  font-weight: 700;
+}
+
+.header__inner img.header__logo {
+  height: 20px;
+  margin-top: 8px;
+}
+
+/* ==================== _container.scss ==================== */
+.HeadingTitle {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--gray900);
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: Lucida Console, Courier, monospace;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px 0 102px;
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container__side {
+  color: var(--gray900);
+  width: 200px;
+}
+
+.container__side__menu {
+  background-color: var(--white);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 0 0 var(--gray400);
+          box-shadow: 0 1px 0 0 var(--gray400);
+  margin-bottom: 10px;
+}
+
+.container__side__menu a {
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  position: relative;
+  border-left: 1px solid var(--gray400);
+  border-right: 1px solid var(--gray400);
+}
+
+.container__side__menu a:hover .container__side__item {
+  cursor: pointer;
+  background-color: var(--gray100);
+}
+
+.container__side__menu a:nth-of-type(n + 1) {
+  border-top: 1px solid var(--gray400);
+}
+
+.container__side__menu .container__side__item {
+  height: 100%;
+  padding: 0 16px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gray900);
+}
+
+.container__side__menu .container__side__item:hover {
+  color: var(--gray900);
+}
+
+.container__side__menu .container__side__item:hover .profile__ico {
+  opacity: 1;
+}
+
+.container__side__menu .active .container__side__item {
+  border-left: 4px solid var(--amazonYellow);
+  color: var(--gray900);
+  padding: 0 15px;
+}
+
+.container__side__menu .active .container__side__item .profile__ico {
+  opacity: 1;
+}
+
+.container__side__menu .profile__ico {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+.container__side__item i {
+  margin-right: 15px;
+}
+
+.container__side__item .ico_amazon {
+  background-image: url(../img/icon-amazon.svg);
+  background-size: 100%;
+  width: 14px;
+  height: 14px;
+  margin-bottom: 2px;
+}
+
+.container__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 24px;
+}
+
+.container__box {
+  background-color: var(--white);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 0 0 #e3e3e3;
+  -ms-box-shadow: 0 1px 0 0 #e3e3e3;
+  -o-box-shadow: 0 1px 0 0 #e3e3e3;
+  box-shadow: 0 1px 0 0 #e3e3e3;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    margin: 0 79px;
+    padding-bottom: 40px;
+    padding-top: 56px;
+    position: relative;
+    width: auto;
+  }
+  .container__side {
+    margin: 15px 0 0 0;
+    width: 100%;
+    border-top: 1px solid rgba(227, 227, 227, 0.5);
+  }
+  .container__side__menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .container__side__menu a {
+    width: auto;
+    height: 42px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    margin: 0 25px 0 0;
+    padding: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .container__side__menu a:first-child {
+    padding-left: 16px;
+  }
+  .container__side__menu a:nth-of-type(n + 1) {
+    border-top: none !important;
+  }
+  .container__side__menu .container__side__item {
+    padding: 0 10px;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 42px;
+  }
+  .container__side__menu .active .container__side__item {
+    border-left: 0;
+    padding: 0 10px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--amazonYellow);
+    text-align: center;
+  }
+  .container__body {
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin: 0;
+    padding-top: 25px;
+  }
+  .container .HeadingTitle {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    padding-left: 25px;
+  }
+  .container__body {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+/* ==================== _details.scss ==================== */
+.ds__details {
+  min-height: 530px;
+  position: relative;
+  width: 100%;
+}
+
+.ds__details h2 {
+  text-align: left;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px dashed rgba(221, 221, 221, 0.5);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.ds__details .pre__box {
+  padding: 30px 24px 0 30px;
+}
+
+.ds__details .pre__box h4 {
+  font-size: 1.4rem;
+}
+
+.ds__details .pre__box h4 span {
+  padding-left: 10px;
+  color: var(--gray700);
+}
+
+.ds__details .pre__box .codeTypes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 1.2rem;
+  padding-bottom: 2px;
+}
+
+.ds__details .pre__box .pre__img {
+  display: inline;
+}
+
+.ds__details .pre__box .pre__img img {
+  max-width: 100%;
+}

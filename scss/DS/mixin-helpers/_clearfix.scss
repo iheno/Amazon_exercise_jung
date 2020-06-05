@@ -1,0 +1,13 @@
+/* ==================== clearfix ====================  */
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// export
+.custom-class {
+  @include clearfix;
+}

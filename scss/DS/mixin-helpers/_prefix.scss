@@ -1,0 +1,16 @@
+/* ==================== Vendor Prefixing ====================  */
+@mixin prefix($property, $value) {
+
+  @each $prefix in -webkit-,
+  -moz-,
+  -ms-,
+  -o-,
+  '' {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+// export
+.custom-class {
+  @include prefix(transition, 0.5s);
+}

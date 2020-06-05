@@ -1,0 +1,48 @@
+/* ==================== Bootstrap 4 grid system ==================== */
+
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+
+@mixin desktop {
+  @media screen and (min-width: #{$xl}) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$lg}) {
+    .container {
+      max-width: 960px;
+    }
+  }
+}
+
+@mixin ipad {
+  @media screen and (min-width: #{$md}) {
+    .container {
+      max-width: 720px;
+    }
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: #{sm}) {
+    .container {
+      max-width: 540px;
+    }
+  }
+}
+
+// export
+@include mobile();
+@include ipad();
+@include tablet();
+@include desktop();
+
+.container-fluid {
+  width: 100%;
+}

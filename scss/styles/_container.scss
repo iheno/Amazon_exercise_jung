@@ -1,0 +1,281 @@
+/* ==================== _container.scss ==================== */
+.HeadingTitle {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--gray900);
+
+  font: {
+    size: 2rem;
+    weight: 600;
+    family: Lucida Console, Courier, monospace;
+  }
+
+  height: 36px;
+  line-height: 36px;
+
+  margin: {
+    top: 30px;
+    bottom: 10px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px 0 102px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container__side {
+  color: var(--gray900);
+
+  width: 200px;
+}
+
+.container__side__menu {
+  background-color: var(--white);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 0 var(--gray400);
+
+  margin: {
+    bottom: 10px;
+  }
+
+  a {
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    position: relative;
+    border-left: 1px solid var(--gray400);
+    border-right: 1px solid var(--gray400);
+
+    &:hover {
+      .container__side__item {
+        cursor: pointer;
+
+        background: {
+          color: var(--gray100);
+        }
+      }
+    }
+
+    &:nth-of-type(n + 1) {
+      border: {
+        top: 1px solid var(--gray400);
+      }
+    }
+  }
+
+  .container__side__item {
+    height: 100%;
+    padding: 0 16px;
+
+    font: {
+      size: 1.4rem;
+      weight: 600;
+    }
+
+    color: var(--gray900);
+
+    &:hover {
+      color: var(--gray900);
+
+      .profile__ico {
+        opacity: 1;
+      }
+    }
+  }
+
+  .active {
+    .container__side__item {
+      border: {
+        left: 4px solid var(--amazonYellow);
+      }
+
+      color: var(--gray900);
+      padding: 0 15px;
+
+      .profile__ico {
+        opacity: 1;
+      }
+    }
+  }
+
+  .profile__ico {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+
+    @include opacity(0.9);
+  }
+}
+
+.container__side__item {
+  i {
+    margin: {
+      right: 15px;
+    }
+  }
+
+  .ico_amazon {
+    background: {
+      image: url(../img/icon-amazon.svg);
+      size: 100%;
+    }
+
+    width: 14px;
+    height: 14px;
+
+    margin: {
+      bottom: 2px;
+    }
+  }
+}
+
+.container__body {
+  flex: 1;
+
+  margin: {
+    left: 24px;
+  }
+}
+
+.container__box {
+  background: {
+    color: var(--white);
+  }
+
+  border-radius: 2px;
+  @include prefix(box-shadow, 0 1px 0 0 rgb(227, 227, 227));
+
+  margin: {
+    bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    margin: 0 79px;
+
+    padding: {
+      bottom: 40px;
+      top: 56px;
+    }
+
+    position: relative;
+    width: auto;
+  }
+
+  .container__side {
+    margin: 15px 0 0 0;
+    width: 100%;
+
+    border: {
+      top: 1px solid rgba(227, 227, 227, 0.5);
+    }
+  }
+
+  .container__side__menu {
+    display: flex;
+    align-items: center;
+
+    overflow: {
+      x: scroll;
+      y: hidden;
+    }
+
+    a {
+      width: auto;
+      height: 42px;
+      flex-shrink: 0;
+      margin: 0 25px 0 0;
+      padding: 0;
+
+      border: {
+        left: none;
+        right: none;
+      }
+
+      &:first-child {
+        padding: {
+          left: 16px;
+        }
+      }
+
+      &:nth-of-type(n + 1) {
+        border: {
+          top: none !important;
+        }
+      }
+    }
+
+    .container__side__item {
+      padding: 0 10px;
+
+      font: {
+        size: 1.4rem;
+      }
+
+      text-align: center;
+      line-height: 42px;
+    }
+
+    .active {
+      .container__side__item {
+        border: {
+          left: 0;
+        }
+
+        padding: 0 10px;
+
+        font: {
+          weight: bold;
+        }
+
+        border: {
+          bottom: 2px solid var(--amazonYellow);
+        }
+
+        text-align: center;
+      }
+    }
+  }
+
+  .container__body {
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin: 0;
+
+    padding: {
+      top: 25px;
+    }
+  }
+
+  .container .HeadingTitle {
+    font: {
+      size: 1.6rem;
+    }
+
+    margin: {
+      bottom: 5px;
+    }
+
+    padding: {
+      left: 25px;
+    }
+  }
+
+  .container__body {
+    margin: 0;
+    width: 100%;
+  }
+}

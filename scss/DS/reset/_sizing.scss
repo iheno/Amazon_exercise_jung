@@ -1,0 +1,247 @@
+/* ==================== font-size ====================  */
+$max: 36;
+$offset: 1;
+$unit: 'rem';
+
+@mixin list-loop($className, $styleName) {
+  $i: 8;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{($i / 10) + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.fs-', 'font-size');
+
+
+
+
+
+/* ==================== padding ====================  */
+$max: 40;
+$offset: 2;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.p-', 'padding');
+
+
+
+
+
+/* ==================== padding left ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.p-l-', 'padding-left');
+
+
+
+
+
+/* ==================== padding right ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.p-r-', 'padding-right');
+
+
+
+
+
+/* ==================== padding top ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.p-t-', 'padding-top');
+
+
+
+
+
+/* ==================== padding bottom ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.p-b-', 'padding-bottom');
+
+
+
+
+/* ==================== margin ====================  */
+$max: 40;
+$offset: 2;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.m-', 'margin');
+
+
+
+
+
+/* ==================== margin left ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.m-l-', 'margin-left');
+
+
+
+
+
+/* ==================== margin right ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.m-r-', 'margin-right');
+
+
+
+
+
+/* ==================== margin top ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.m-t-', 'margin-top');
+
+
+
+
+
+/* ==================== margin bottom ====================  */
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i+$offset;
+  }
+}
+
+@include list-loop('.m-b-', 'margin-bottom');

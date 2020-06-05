@@ -1,0 +1,42 @@
+/* ==================== color system common ==================== */
+
+// be used colors
+$primary: #e91e63;
+$secondary: #2187f2;
+$harmony: #7d5fcf;
+$black: #101010;
+$white: #ffffff;
+$amazon: #febd69;
+
+:root {
+  --black: #101010;
+  --white: #ffffff;
+  --gray900: #3d3d3d;
+  --gray800: #545454;
+  --gray700: #737373;
+  --gray600: #9b9b9b;
+  --gray500: #d2d2d2;
+  --gray400: #e3e3e3;
+  --gray300: #e8e8e8;
+  --gray200: #efefef;
+  --gray100: #f8f8f8;
+  --blue600: #2187f2;
+  --blue500: #4fa3fa;
+  --blue400: #7db9f7;
+  --blue300: #acd3fb;
+  --blue200: #cde3fa;
+  --blue100: #f3f9ff;
+  --pink600: #e91e63;
+  --pink500: #f06083;
+  --pink400: #fa8aa5;
+  --pink300: #ffafc2;
+  --pink200: #ffd1dc;
+  --pink100: #fff2f5;
+  --violet600: #7d5fcf;
+  --violet500: #8d6ee3;
+  --violet400: #a487f4;
+  --violet300: #bfaaf9;
+  --violet200: #d8cdfa;
+  --violet100: #f8f3ff;
+  --amazonYellow: #febd69;
+}

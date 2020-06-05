@@ -1,0 +1,26 @@
+@mixin font-size($size, $base: 10) {
+  // if html font-size 100% will be change $base: 16
+  font-size: ($size / $base) + rem;
+}
+
+// export
+.custom-class {
+  @include font-size(12);
+  /* reset html font-size 62.5% */
+}
+
+
+
+
+
+@mixin fs-px-rem($size, $base: 16) {
+  // if html font-size 62.5% will be change $base: 10
+  font-size: $size + px;
+  font-size: ($size / $base) + rem;
+}
+
+// export
+.custom-class {
+  @include fs-px-rem(12);
+  /* reset html font-size 100% */
+}

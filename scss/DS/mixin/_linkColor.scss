@@ -1,0 +1,12 @@
+// linkColor
+$linkColor: #2187F2;
+
+@mixin linkColor($color) {
+  color: $color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: lighten($color, 20%); // opercity 20%
+  }
+}

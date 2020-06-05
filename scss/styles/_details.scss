@@ -1,0 +1,56 @@
+/* ==================== _details.scss ==================== */
+.ds__details {
+  min-height: 530px;
+  position: relative;
+  width: 100%;
+
+  h2 {
+    text-align: left;
+    padding: 20px 10px 20px 20px;
+    border-bottom: 1px dashed rgba(221, 221, 221, 0.5);
+
+    font: {
+      size: 1.6rem;
+      weight: 600;
+    }
+  }
+
+  .pre__box {
+    padding: 30px 24px 0 30px;
+
+    h4 {
+      font: {
+        size: 1.4rem;
+      }
+
+      span {
+        padding: {
+          left: 10px;
+        }
+
+        color: var(--gray700);
+      }
+    }
+
+    .codeTypes {
+      display: flex;
+      justify-content: flex-end;
+
+      font: {
+        size: 1.2rem;
+      }
+
+      padding: {
+        bottom: 2px;
+      }
+    }
+
+    .pre__img {
+      display: inline;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

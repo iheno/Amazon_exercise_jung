@@ -1,0 +1,95 @@
+// Media Quary Setting Basic 
+
+$desktop-l-width: 1440px;
+$desktop-m-width: 1140px;
+$tablet-width: 1024px;
+$tablet-height: 768px;
+$ipad-width: 640px;
+$mobile-width: 480px;
+$mobile-s-width: 360px;
+
+// only PC : pc-only
+@mixin pc-only {
+  @media screen and (min-width: #{$tablet-l-width + 1}) {
+    @content;
+  }
+}
+
+// tablet width 1024*768 : tablet-w 
+@mixin tablet-w {
+  @media screen and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+// tablet height 1024*768 : tablet-h
+@mixin tablet-h {
+  @media screen and (max-width: #{$tablet-height}) {
+    @content;
+  }
+}
+
+// ipad mini 640px : ipad
+@mixin ipad {
+  @media screen and (max-width: #{$ipad-width}) {
+    @content;
+  }
+}
+
+// mobile middle 480px : mobile
+@mixin mobile {
+  @media screen and (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+// mobile small 360px : mobile-sm 
+@mixin mobile-s {
+  @media screen and (max-width: #{$mobile-s-width}) {
+    @content;
+  }
+}
+
+// The Grid System Demystified
+// min-width
+$breakpoint-up: ('xs': 'screen and (min-width: 481px)',
+  'sm': 'screen and (min-width: 768px)',
+  'md': 'screen and (min-width: 992px)',
+  'lg': 'screen and (min-width: 1200px)',
+  'xl': 'screen and (min-width: 1440px)',
+) !default;
+
+// max-width
+$breakpoint-down: ('xs': 'screen and (max-width: 480px)',
+  'sm': 'screen and (max-width: 767px)',
+  'md': 'screen and (max-width: 991px)',
+  'lg': 'screen and (max-width: 1199px)',
+  'xl': 'screen and (max-width: 1439px)',
+) !default;
+
+// min and max-width
+$breakpoint-up-down: ('xs--device': 'screen and (min-width: 360px) and (max-width: 480px)',
+  'sm--device': 'screen and (min-width: 481px) and (max-width: 768px)',
+  'md--device': 'screen and (min-width: 769px) and (max-width: 992px)',
+  'lg--device': 'screen and (min-width: 993px) and (max-width: 1200px)',
+  'xl--device': 'screen and (min-width: 1201px)',
+) !default;
+
+// @mixin
+@mixin mq-up($breakpoint: sm) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: xs) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-up-down($breakpoint: xs--device) {
+  @media #{map-get($breakpoint-up-down, $breakpoint)} {
+    @content;
+  }
+}
