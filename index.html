@@ -51,19 +51,14 @@
       <h1 class="HeadingTitle clearfix">Exercise</h1>
       <div class="container__side">
         <div class="container__side__menu">
-          <a href="index.html" class="active">
+          <a href="starRating.html" class="active">
             <div class="container__side__item">
               <i class="profile__ico ico_amazon"></i>Star Rating
             </div>
           </a>
-          <a href="#">
+          <a href="productCarousel.html">
             <div class="container__side__item">
               <i class="profile__ico ico_amazon"></i>Product Carousel
-            </div>
-          </a>
-          <a href="#">
-            <div class="container__side__item">
-              <i class="profile__ico ico_amazon"></i>Image Inspector
             </div>
           </a>
         </div>
@@ -110,7 +105,10 @@ const starResult = document.querySelector('.starResult');
 const starEvent = ['click', 'mouseover', 'mouseout'];
 const CHECKOVER = 'checkColor';
 const CHECKOUT = 'hoverColor';
-const changePicture = () => window.location.reload();
+function changePicture() {
+// window.location.href = window.location.href;
+location.reload();
+}
 
 // 1 ~ 5 stars
 for (let i = 0; i < starCard.length; i++) { 

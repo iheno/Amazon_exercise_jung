@@ -1,24 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Carousel</title>
-    <!-- for Product Carousel -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+
+    <!-- My Design System -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/prettify.css" />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- For Amazon css -->
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/productCarousel.css" />
-    <!-- use defer -->
+
+    <script defer src="js/productCarousel.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=css&skin=desert"
+    ></script>
   </head>
 
   <body>
-    <div class="carousel__warp">
-      <div class="carousel__box">
-        <!--appendChild here -->
+    <header class="headerWarp">
+      <div class="header__inner">
+        <a href="#">Technical Exercise</a>
       </div>
-      <div class="carousel__arrow">
-        <button class="btn prevbtn"><i class="ico-arrow-l"></i></button>
-        <button class="btn nextbtn"><i class="ico-arrow-r"></i></button>
+    </header>
+
+    <div class="container">
+      <h1 class="HeadingTitle clearfix">Exercise</h1>
+      <div class="container__side">
+        <div class="container__side__menu">
+          <a href="starRating.html">
+            <div class="container__side__item">
+              <i class="profile__ico ico_amazon"></i>Star Rating
+            </div>
+          </a>
+          <a href="productCarousel.html" class="active">
+            <div class="container__side__item">
+              <i class="profile__ico ico_amazon"></i>Product Carousel
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="container__body">
+        <div class="container__box clearfix">
+          <div class="ds__details">
+            <h2>Exercise 2 : Product Carousel</h2>
+            <div class="carousel__warp">
+              <div class="carousel__box">
+                <!--appendChild here -->
+              </div>
+              <div class="carousel__arrow">
+                <button class="btn prevbtn"><i class="ico-arrow-l"></i></button>
+                <button class="btn nextbtn"><i class="ico-arrow-r"></i></button>
+              </div>
+            </div>
+
+            <div class="pre__box">
+              <h4>Code</h4>
+              <span class="codeTypes">JavaScript</span>
+              <pre class="prettyprint lang-css linenums m-b-80">
+              <code>
+'use strict';
+
+// JSON
+const apiUrl =
+  'https://m.media-amazon.com/images/G/01/adt/hiring/echo_products.json';
+
+async function getData() {
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  const { asins } = data;
+  const fragment = document.createDocumentFragment();
+  const productBox = document.querySelector('.carousel__box');
+
+  for (let i in asins) {
+    let item = asins[i];
+    const carouselItem = document.createElement('div');
+    const carouselItemBox = document.createElement('div');
+    const productImage = document.createElement('div');
+    const productBody = document.createElement('div');
+    const productBodyTitle = document.createElement('div');
+    const productTitle = document.createElement('h3');
+    const productBodyInfo = document.createElement('div');
+    const productBodyInfoPrice = document.createElement('div');
+    const normalPrice = document.createElement('span');
+    const productBodyInfoReview = document.createElement('div');
+    const productBodyInfoReviewStar = document.createElement('div');
+    const starIco = document.createElement('i');
+    const productBodyInfoReviewCount = document.createElement('span');
+    const productBodyInfoOffers = document.createElement('div');
+    const specialData = document.createElement('span');
+    const productBodyPrime = document.createElement('div');
+    const primeIco = document.createElement('i');
+
+    carouselItem.classList.add('carousel__item');
+    carouselItemBox.classList.add('carousel__item__box');
+    productImage.classList.add('product__image');
+    productBody.classList.add('product__body');
+    productBodyTitle.classList.add('product__body__title');
+    productTitle.classList.add('product__title');
+    productBodyInfo.classList.add('product__body__info');
+    productBodyInfoPrice.classList.add('product__body__info__price');
+    normalPrice.classList.add('normal__price');
+    productBodyInfoReview.classList.add('product__body__info__review');
+    productBodyInfoReviewStar.classList.add(
+      'product__body__info__review__star'
+    );
+    starIco.classList.add('star-ico', 'star-ico-small');
+    productBodyInfoReviewCount.classList.add(
+      'product__body__info__review__count'
+    );
+    productBodyInfoOffers.classList.add('product__body__info__offers');
+    specialData.classList.add('special__data');
+    productBodyPrime.classList.add('product__body__prime');
+    primeIco.classList.add('prime-ico-small');
+    primeIco.classList.add('prime-ico-small');
+
+    carouselItemBox.appendChild(productImage); // imageHires
+    carouselItemBox.appendChild(productBody);
+    productBody.appendChild(productBodyTitle);
+    productBodyTitle.appendChild(productTitle); // imageHires
+    productBody.appendChild(productBodyInfo);
+    productBodyInfo.appendChild(productBodyInfoPrice);
+    productBodyInfoPrice.appendChild(normalPrice); // variations: price
+    productBodyInfo.appendChild(productBodyInfoReview);
+    productBodyInfoReview.appendChild(productBodyInfoReviewStar);
+    productBodyInfoReviewStar.appendChild(starIco); // rating
+    productBodyInfoReview.appendChild(productBodyInfoReviewCount); // ratingCount
+    productBodyInfo.appendChild(productBodyInfoOffers);
+    productBodyInfoOffers.appendChild(specialData); // releaseDate
+    productBody.appendChild(productBodyPrime);
+    productBodyPrime.appendChild(primeIco); // isPrimeEligible: true
+    carouselItem.appendChild(carouselItemBox);
+    fragment.appendChild(carouselItem);
+
+    productImage.innerHTML = `<img src="${item.imageHires}" />`;
+    productTitle.append(item.title);
+    normalPrice.append(item.variations[0].price);
+    productBodyInfoReviewCount.append(item.ratingCount);
+    primeIco.append(
+      item.isPrimeEligible === true
+        ? primeIco.classList.add('prime-ico')
+        : primeIco.classList.remove('prime-ico')
+    );
+    specialData.append(item.releaseDate);
+    starIco.append(item.rating);
+    switch (item.rating) {
+      case 0:
+        starIco.classList.add('star-small-0');
+        break;
+      case 1:
+        starIco.classList.add('star-small-1');
+        break;
+      case 2:
+        starIco.classList.add('star-small-2');
+        break;
+      case 3:
+        starIco.classList.add('star-small-3');
+        break;
+      case 4:
+        starIco.classList.add('star-small-4');
+        break;
+      default:
+        starIco.classList.add('star-small-5');
+        break;
+    }
+
+    console.log(item.rating);
+  }
+  productBox.appendChild(fragment);
+
+  // carousel
+  const SHOWING = 'show';
+  const nextBtn = document.querySelector('.nextbtn');
+  const prevBtn = document.querySelector('.prevbtn');
+  const firstItem = document.querySelector('.carousel__item:first-child');
+  const lastItem = document.querySelector('.carousel__item:last-child');
+
+  const carousel = () => firstItem.classList.add(SHOWING);
+
+  const nextArrow = () => {
+    const currentSilde = document.querySelector(`.${SHOWING}`);
+    if (currentSilde) {
+      currentSilde.classList.remove(SHOWING);
+      const nextSlide = currentSilde.nextElementSibling; //  next()
+      if (nextSlide) {
+        nextSlide.classList.add(SHOWING);
+      } else {
+        firstItem.classList.add(SHOWING);
+      }
+    } else {
+      firstItem.classList.add(SHOWING);
+    }
+  };
+
+  const prevArrow = () => {
+    const currentSilde = document.querySelector(`.${SHOWING}`);
+    if (currentSilde) {
+      currentSilde.classList.remove(SHOWING);
+      const prevSlide = currentSilde.previousElementSibling; // prev()
+      if (prevSlide) {
+        prevSlide.classList.add(SHOWING);
+      } else {
+        lastItem.classList.add(SHOWING);
+      }
+    } else {
+      firstItem.classList.add(SHOWING);
+    }
+  };
+  nextBtn.addEventListener('click', nextArrow);
+  prevBtn.addEventListener('click', prevArrow);
+
+  carousel();
+}
+
+getData();
+
+              </code>
+              </pre>
+            </div>
+
+            <div class="pre__box">
+              <span class="codeTypes">SCSS</span>
+              <pre class="prettyprint lang-css linenums m-b-80">
+              <code>
+/* simple reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* product carousel style */
+
+.carousel {
+
+  &__warp {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__box {
+    width: 350px;
+    height: 430px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(52, 58, 64, 0.15),
+      0 8px 16px 0 rgba(52, 58, 64, 0.15);
+    border-radius: 10px;
+  }
+  &__item {
+    margin: 0 auto;
+    width: 300px;
+    height: 380px;
+    color: #111111;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    cursor: pointer;
+    &:nth-child(odd) {
+      background: {
+        color: #ffffff;
+      }
+    }
+    &:nth-child(even) {
+      background: {
+        color: #ffffff;
+      }
+    }
+  }
+  &__arrow {
+    width: 390px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    z-index: 1;
+    position: absolute;
+    .btn {
+      background-color: #ffffff;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 6px 0 rgba(0, 0, 0, 0.05),
+        0 4px 12px 0 rgba(0, 0, 0, 0.05);
+      height: 40px;
+      text-align: center;
+      width: 40px;
+      z-index: 10;
+      cursor: pointer;
+      i {
+        background: {
+          image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+          size: 400px 900px;
+          repeat: no-repeat;
+        }
+        margin: {
+          left: 7px;
+        }
+        display: block;
+        &.ico-arrow-r {
+          width: 11px;
+          height: 15px;
+          background-position: -105px -7px;
+        }
+        &.ico-arrow-l {
+          width: 11px;
+          height: 15px;
+          background-position: -123px -7px;
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
+          0 4px 16px 0 rgba(0, 0, 0, 0.05), 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+
+.product {
+  &__image {
+    height: 200px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    img {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      object-fit: contain;
+      background-size: cover;
+      background-position: 100%;
+      padding: 5px;
+    }
+  }
+  &__body {
+    padding: 10px 16px 16px;
+    &__title {
+      h3 {
+        color: #343434;
+        font: {
+          weight: 600;
+          size: 1.6rem;
+        }
+        margin: 0;
+        width: 100%;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+      }
+    }
+    &__info {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      line-height: 1;
+      &__review {
+        margin: {
+          bottom: 8px;
+        }
+        &__star {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          .star-ico {
+            background: {
+              image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+              size: 400px 900px;
+              repeat: no-repeat;
+            }
+            display: block;
+            text-indent: -9999px;
+          }
+          .star-ico-small {
+            width: 80px;
+            height: 18px;
+            position: relative;
+          }
+          .star-small-5 {
+            background-position: -5px -368px;
+          }
+          .star-small-4 {
+            background-position: -21px -368px;
+          }
+          .star-small-3 {
+            background-position: -37px -368px;
+          }
+          .star-small-2 {
+            background-position: -53px -368px;
+          }
+          .star-small-1 {
+            background-position: -69px -368px;
+          }
+          .star-small-0 {
+            background-position: -85px -368px;
+          }
+          .star-small-4-5 {
+            background-position: -175px -368px;
+          }
+          .star-small-3-5 {
+            background-position: -191px -368px;
+          }
+          .star-small-2-5 {
+            background-position: -207px -368px;
+          }
+          .star-small-1-5 {
+            background-position: -223px -368px;
+          }
+          .star-small-0-5 {
+            background-position: -239px -368px;
+          }
+        }
+        &__count {
+          vertical-align: middle;
+          margin: {
+            left: 4px;
+          }
+          font: {
+            size: 1.2rem;
+            weight: 600;
+          }
+          color: #0066c0;
+        }
+      }
+      &__price {
+        padding: 5px 0 6px 0;
+        .normal__price {
+          font: {
+            size: 2rem;
+            weight: 600;
+          }
+          padding: {
+            right: 5px;
+          }
+        }
+        color: #b12704;
+      }
+      &__offers {
+        .special__data {
+          font: {
+            size: 1.4rem;
+            weight: 600;
+          }
+          color: #888888;
+          padding: 0 2px 0 0;
+        }
+      }
+    }
+    &__prime {
+      position: absolute;
+      bottom: 16px;
+      line-height: 1;
+      right: 16px;
+      .prime-ico {
+        background: {
+          image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+          size: 400px 900px;
+          repeat: no-repeat;
+        }
+        display: block;
+      }
+      .prime-ico-small {
+        width: 80px;
+        height: 18px;
+        background-position: -209px -633px;
+        display: block;
+        text-indent: -9999px;
+      }
+    }
+  }
+}
+
+.show {
+  z-index: 1;
+  opacity: 1;
+  display: block;
+}
+
+              </code>
+              </pre>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <script src="js/productCarousel.js"></script>
   </body>
 </html>

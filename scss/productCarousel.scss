@@ -17,9 +17,19 @@ body {
 /* product carousel style */
 
 .carousel {
+  // &__warp {
+  //   width: 100%;
+  //   height: 100vh;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   position: relative;
+  // }
   &__warp {
     width: 100%;
-    height: 100vh;
+    height: auto;
+    margin: 40px 0 150px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
