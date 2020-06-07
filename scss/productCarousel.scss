@@ -15,48 +15,261 @@ body {
 }
 
 /* product carousel style */
-.slider {
-  width: 100%;
-  position: relative;
-}
 
-.slider__item {
-  width: 100%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #111111;
-  position: absolute;
-  top: 0;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.slider__item:nth-child(odd) {
-  background: {
-    color: #cccccc;
+.carousel {
+  &__warp {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__box {
+    width: 350px;
+    height: 430px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(52, 58, 64, 0.15),
+      0 8px 16px 0 rgba(52, 58, 64, 0.15);
+    border-radius: 10px;
+  }
+  &__item {
+    margin: 0 auto;
+    width: 300px;
+    height: 380px;
+    color: #111111;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    cursor: pointer;
+    &:nth-child(odd) {
+      background: {
+        color: #ffffff;
+      }
+    }
+    &:nth-child(even) {
+      background: {
+        color: #ffffff;
+      }
+    }
+  }
+  &__arrow {
+    width: 390px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    z-index: 1;
+    position: absolute;
+    .btn {
+      background-color: #ffffff;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 6px 0 rgba(0, 0, 0, 0.05),
+        0 4px 12px 0 rgba(0, 0, 0, 0.05);
+      height: 40px;
+      text-align: center;
+      width: 40px;
+      z-index: 10;
+      cursor: pointer;
+      i {
+        background: {
+          image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+          size: 400px 900px;
+          repeat: no-repeat;
+        }
+        margin: {
+          left: 7px;
+        }
+        display: block;
+        &.ico-arrow-r {
+          width: 11px;
+          height: 15px;
+          background-position: -105px -7px;
+        }
+        &.ico-arrow-l {
+          width: 11px;
+          height: 15px;
+          background-position: -123px -7px;
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
+          0 4px 16px 0 rgba(0, 0, 0, 0.05), 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+      }
+    }
   }
 }
 
-.slider__item:nth-child(even) {
-  background: {
-    color: #dddddd;
+.product {
+  &__image {
+    height: 200px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    img {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      object-fit: contain;
+      background-size: cover;
+      background-position: 100%;
+      padding: 5px;
+    }
+  }
+  &__body {
+    padding: 10px 16px 16px;
+    &__title {
+      h3 {
+        color: #343434;
+        font: {
+          weight: 600;
+          size: 1.6rem;
+        }
+        margin: 0;
+        width: 100%;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+      }
+    }
+    &__info {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      line-height: 1;
+      &__review {
+        margin: {
+          bottom: 8px;
+        }
+        &__star {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          .star-ico {
+            background: {
+              image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+              size: 400px 900px;
+              repeat: no-repeat;
+            }
+            display: block;
+            text-indent: -9999px;
+          }
+          .star-ico-small {
+            width: 80px;
+            height: 18px;
+            position: relative;
+          }
+          .star-small-5 {
+            background-position: -5px -368px;
+          }
+          .star-small-4 {
+            background-position: -21px -368px;
+          }
+          .star-small-3 {
+            background-position: -37px -368px;
+          }
+          .star-small-2 {
+            background-position: -53px -368px;
+          }
+          .star-small-1 {
+            background-position: -69px -368px;
+          }
+          .star-small-0 {
+            background-position: -85px -368px;
+          }
+          .star-small-4-5 {
+            background-position: -175px -368px;
+          }
+          .star-small-3-5 {
+            background-position: -191px -368px;
+          }
+          .star-small-2-5 {
+            background-position: -207px -368px;
+          }
+          .star-small-1-5 {
+            background-position: -223px -368px;
+          }
+          .star-small-0-5 {
+            background-position: -239px -368px;
+          }
+        }
+        &__count {
+          vertical-align: middle;
+          margin: {
+            left: 4px;
+          }
+          font: {
+            size: 1.2rem;
+            weight: 600;
+          }
+          color: #0066c0;
+        }
+      }
+      &__price {
+        padding: 5px 0 6px 0;
+        .normal__price {
+          font: {
+            size: 2rem;
+            weight: 600;
+          }
+          padding: {
+            right: 5px;
+          }
+        }
+        color: #b12704;
+      }
+      &__offers {
+        .special__data {
+          font: {
+            size: 1.4rem;
+            weight: 600;
+          }
+          color: #888888;
+          padding: 0 2px 0 0;
+        }
+      }
+    }
+    &__prime {
+      position: absolute;
+      bottom: 16px;
+      line-height: 1;
+      right: 16px;
+      .prime-ico {
+        background: {
+          image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+          size: 400px 900px;
+          repeat: no-repeat;
+        }
+        display: block;
+      }
+      .prime-ico-small {
+        width: 80px;
+        height: 18px;
+        background-position: -209px -633px;
+        display: block;
+        text-indent: -9999px;
+      }
+    }
   }
 }
 
-.showing {
+.show {
   z-index: 1;
   opacity: 1;
-}
-
-.slide__arrow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  top: 220px;
-  margin: 0 10px;
-  z-index: 1;
+  display: block;
 }

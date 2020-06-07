@@ -47,10 +47,10 @@ body {
   border-radius: 2px;
   -webkit-transform-origin: 50% 65%;
           transform-origin: 50% 65%;
-  -webkit-transition: -webkit-transform 5s, -webkit-filter 3s ease-in-out;
-  transition: -webkit-transform 5s, -webkit-filter 3s ease-in-out;
-  transition: transform 5s, filter 3s ease-in-out;
-  transition: transform 5s, filter 3s ease-in-out, -webkit-transform 5s, -webkit-filter 3s ease-in-out;
+  -webkit-transition: -webkit-transform 3s, -webkit-filter 3s ease-in-out;
+  transition: -webkit-transform 3s, -webkit-filter 3s ease-in-out;
+  transition: transform 3s, filter 3s ease-in-out;
+  transition: transform 3s, filter 3s ease-in-out, -webkit-transform 3s, -webkit-filter 3s ease-in-out;
   -webkit-filter: brightness(120%);
           filter: brightness(120%);
 }
@@ -60,6 +60,8 @@ body {
           filter: brightness(100%);
   -webkit-transform: scale(2);
           transform: scale(2);
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }
 
 .star__picture__cover {
@@ -83,7 +85,7 @@ body {
   margin: 0;
   padding: 0 0 10px 0;
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   color: #343434;
 }
@@ -157,8 +159,8 @@ body {
 }
 
 .star__rating .starResult span {
-  font-size: 1.1rem;
-  line-height: 1.1rem;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
 }
 
 .star__rating .starButton {

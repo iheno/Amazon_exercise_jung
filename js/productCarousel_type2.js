@@ -44,7 +44,7 @@ async function getData() {
     productBodyInfoReviewStar.classList.add(
       'product__body__info__review__star'
     );
-    starIco.classList.add('star-ico', 'star-ico-small');
+    starIco.classList.add('star-ico', 'star-ico-small', 'star-small-4');
     productBodyInfoReviewCount.classList.add(
       'product__body__info__review__count'
     );
@@ -82,74 +82,53 @@ async function getData() {
         : primeIco.classList.remove('prime-ico')
     );
     specialData.append(item.releaseDate);
-    starIco.append(item.rating);
-    switch (item.rating) {
-      case 0:
-        starIco.classList.add('star-small-0');
-        break;
-      case 1:
-        starIco.classList.add('star-small-1');
-        break;
-      case 2:
-        starIco.classList.add('star-small-2');
-        break;
-      case 3:
-        starIco.classList.add('star-small-3');
-        break;
-      case 4:
-        starIco.classList.add('star-small-4');
-        break;
-      default:
-        starIco.classList.add('star-small-5');
-        break;
-    }
 
-    console.log(item.rating);
+    console.log(item.primeIco);
   }
   productBox.appendChild(fragment);
-
-  // carousel
-  const SHOWING = 'show';
-  const nextBtn = document.querySelector('.nextbtn');
-  const prevBtn = document.querySelector('.prevbtn');
-  const firstItem = document.querySelector('.carousel__item:first-child');
-  const lastItem = document.querySelector('.carousel__item:last-child');
-
-  const carousel = () => firstItem.classList.add(SHOWING);
-
-  const nextArrow = () => {
-    const currentSilde = document.querySelector(`.${SHOWING}`);
-    if (currentSilde) {
-      currentSilde.classList.remove(SHOWING);
-      const nextSlide = currentSilde.nextElementSibling; //  next()
-      if (nextSlide) {
-        nextSlide.classList.add(SHOWING);
-      } else {
-        firstItem.classList.add(SHOWING);
-      }
-    } else {
-      firstItem.classList.add(SHOWING);
-    }
-  };
-
-  const prevArrow = () => {
-    const currentSilde = document.querySelector(`.${SHOWING}`);
-    if (currentSilde) {
-      currentSilde.classList.remove(SHOWING);
-      const prevSlide = currentSilde.previousElementSibling; // prev()
-      if (prevSlide) {
-        prevSlide.classList.add(SHOWING);
-      } else {
-        lastItem.classList.add(SHOWING);
-      }
-    } else {
-      firstItem.classList.add(SHOWING);
-    }
-  };
-  nextBtn.addEventListener('click', nextArrow);
-  prevBtn.addEventListener('click', prevArrow);
-
-  carousel();
 }
 
 getData();
+
+// carousel
+const SHOWING = 'show';
+const nextBtn = document.querySelector('.nextbtn');
+const prevBtn = document.querySelector('.prevbtn');
+const firstItem = document.querySelector('.carousel__item:first-child');
+const lastItem = document.querySelector('.carousel__item:last-child');
+
+const carousel = () => firstItem.classList.add(SHOWING);
+
+const nextArrow = () => {
+  const currentSilde = document.querySelector(`.${SHOWING}`);
+  if (currentSilde) {
+    currentSilde.classList.remove(SHOWING);
+    const nextSlide = currentSilde.nextElementSibling; //  next()
+    if (nextSlide) {
+      nextSlide.classList.add(SHOWING);
+    } else {
+      firstItem.classList.add(SHOWING);
+    }
+  } else {
+    firstItem.classList.add(SHOWING);
+  }
+};
+
+const prevArrow = () => {
+  const currentSilde = document.querySelector(`.${SHOWING}`);
+  if (currentSilde) {
+    currentSilde.classList.remove(SHOWING);
+    const prevSlide = currentSilde.previousElementSibling; // prev()
+    if (prevSlide) {
+      prevSlide.classList.add(SHOWING);
+    } else {
+      lastItem.classList.add(SHOWING);
+    }
+  } else {
+    firstItem.classList.add(SHOWING);
+  }
+};
+nextBtn.addEventListener('click', nextArrow);
+prevBtn.addEventListener('click', prevArrow);
+
+carousel();

@@ -5,7 +5,11 @@ const starResult = document.querySelector('.starResult');
 const starEvent = ['click', 'mouseover', 'mouseout'];
 const CHECKOVER = 'checkColor';
 const CHECKOUT = 'hoverColor';
-const changePicture = () => window.location.reload();
+
+function changePicture() {
+  // window.location.href = window.location.href;
+  location.reload();
+}
 
 // 1 ~ 5 stars
 for (let i = 0; i < starCard.length; i++) {

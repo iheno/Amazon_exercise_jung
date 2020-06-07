@@ -48,13 +48,14 @@ body {
     width: 100%;
     border-radius: 2px;
     transform-origin: 50% 65%;
-    transition: transform 5s, filter 3s ease-in-out;
+    transition: transform 3s, filter 3s ease-in-out;
     filter: brightness(120%);
   }
   &:hover {
     img {
       filter: brightness(100%);
       transform: scale(2);
+      cursor: zoom-in;
     }
   }
   &__cover {
@@ -83,7 +84,7 @@ body {
     padding: 0 0 10px 0;
     font: {
       size: 1.4rem;
-      weight: 400;
+      weight: 600;
     }
     text-align: center;
     color: #343434;
@@ -153,9 +154,9 @@ body {
     }
     span {
       font: {
-        size: 1.1rem;
+        size: 1.3rem;
       }
-      line-height: 1.1rem;
+      line-height: 1.3rem;
     }
   }
 

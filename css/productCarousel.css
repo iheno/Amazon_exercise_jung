@@ -16,46 +16,62 @@ body {
 }
 
 /* product carousel style */
-.slider {
+.carousel__warp {
   width: 100%;
-  position: relative;
-}
-
-.slider__item {
-  width: 100%;
-  height: 500px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.carousel__box {
+  width: 350px;
+  height: 430px;
+  position: relative;
+  -webkit-box-shadow: 0 0 0 1px rgba(52, 58, 64, 0.15), 0 8px 16px 0 rgba(52, 58, 64, 0.15);
+          box-shadow: 0 0 0 1px rgba(52, 58, 64, 0.15), 0 8px 16px 0 rgba(52, 58, 64, 0.15);
+  border-radius: 10px;
+}
+
+.carousel__item {
+  margin: 0 auto;
+  width: 300px;
+  height: 380px;
   color: #111111;
   position: absolute;
-  top: 0;
+  top: 25px;
+  left: 25px;
   z-index: 0;
   opacity: 0;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.slider__item:nth-child(odd) {
-  background-color: #cccccc;
+.carousel__item:nth-child(odd) {
+  background-color: #ffffff;
 }
 
-.slider__item:nth-child(even) {
-  background-color: #dddddd;
+.carousel__item:nth-child(even) {
+  background-color: #ffffff;
 }
 
-.showing {
-  z-index: 1;
-  opacity: 1;
-}
-
-.slide__arrow {
+.carousel__arrow {
+  width: 390px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,8 +81,216 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  top: 220px;
-  margin: 0 10px;
+  margin: 0;
   z-index: 1;
+  position: absolute;
+}
+
+.carousel__arrow .btn {
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 6px 0 rgba(0, 0, 0, 0.05), 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 6px 0 rgba(0, 0, 0, 0.05), 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel__arrow .btn i {
+  background-image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+  background-size: 400px 900px;
+  background-repeat: no-repeat;
+  margin-left: 7px;
+  display: block;
+}
+
+.carousel__arrow .btn i.ico-arrow-r {
+  width: 11px;
+  height: 15px;
+  background-position: -105px -7px;
+}
+
+.carousel__arrow .btn i.ico-arrow-l {
+  width: 11px;
+  height: 15px;
+  background-position: -123px -7px;
+}
+
+.carousel__arrow .btn:focus {
+  outline: none;
+}
+
+.carousel__arrow .btn:hover {
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 16px 0 rgba(0, 0, 0, 0.05), 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 16px 0 rgba(0, 0, 0, 0.05), 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.product__image {
+  height: 200px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.product__image img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-size: cover;
+  background-position: 100%;
+  padding: 5px;
+}
+
+.product__body {
+  padding: 10px 16px 16px;
+}
+
+.product__body__title h3 {
+  color: #343434;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0;
+  width: 100%;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+}
+
+.product__body__info {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  line-height: 1;
+}
+
+.product__body__info__review {
+  margin-bottom: 8px;
+}
+
+.product__body__info__review__star {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.product__body__info__review__star .star-ico {
+  background-image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+  background-size: 400px 900px;
+  background-repeat: no-repeat;
+  display: block;
+  text-indent: -9999px;
+}
+
+.product__body__info__review__star .star-ico-small {
+  width: 80px;
+  height: 18px;
+  position: relative;
+}
+
+.product__body__info__review__star .star-small-5 {
+  background-position: -5px -368px;
+}
+
+.product__body__info__review__star .star-small-4 {
+  background-position: -21px -368px;
+}
+
+.product__body__info__review__star .star-small-3 {
+  background-position: -37px -368px;
+}
+
+.product__body__info__review__star .star-small-2 {
+  background-position: -53px -368px;
+}
+
+.product__body__info__review__star .star-small-1 {
+  background-position: -69px -368px;
+}
+
+.product__body__info__review__star .star-small-0 {
+  background-position: -85px -368px;
+}
+
+.product__body__info__review__star .star-small-4-5 {
+  background-position: -175px -368px;
+}
+
+.product__body__info__review__star .star-small-3-5 {
+  background-position: -191px -368px;
+}
+
+.product__body__info__review__star .star-small-2-5 {
+  background-position: -207px -368px;
+}
+
+.product__body__info__review__star .star-small-1-5 {
+  background-position: -223px -368px;
+}
+
+.product__body__info__review__star .star-small-0-5 {
+  background-position: -239px -368px;
+}
+
+.product__body__info__review__count {
+  vertical-align: middle;
+  margin-left: 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0066c0;
+}
+
+.product__body__info__price {
+  padding: 5px 0 6px 0;
+  color: #b12704;
+}
+
+.product__body__info__price .normal__price {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-right: 5px;
+}
+
+.product__body__info__offers .special__data {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #888888;
+  padding: 0 2px 0 0;
+}
+
+.product__body__prime {
+  position: absolute;
+  bottom: 16px;
+  line-height: 1;
+  right: 16px;
+}
+
+.product__body__prime .prime-ico {
+  background-image: url(https://m.media-amazon.com/images/G/01/adt/hiring/amazon_sprite_2x.png);
+  background-size: 400px 900px;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.product__body__prime .prime-ico-small {
+  width: 80px;
+  height: 18px;
+  background-position: -209px -633px;
+  display: block;
+  text-indent: -9999px;
+}
+
+.show {
+  z-index: 1;
+  opacity: 1;
+  display: block;
 }
