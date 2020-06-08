@@ -132,8 +132,8 @@ body {
       height: 100%;
       overflow: hidden;
       object-fit: contain;
-      background-size: cover;
-      background-position: 100%;
+      background-size: contain;
+      background-position: 100% center;
       padding: 5px;
     }
   }

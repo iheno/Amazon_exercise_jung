@@ -18,7 +18,7 @@ body {
 /* product carousel style */
 .carousel__warp {
   width: 100%;
-  height: auto;
+  height: 430px;
   margin: 40px 0 150px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,7 +33,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
 }
 
 .carousel__box {
@@ -144,8 +143,8 @@ body {
   overflow: hidden;
   -o-object-fit: contain;
      object-fit: contain;
-  background-size: cover;
-  background-position: 100%;
+  background-size: contain;
+  background-position: 100% center;
   padding: 5px;
 }
 

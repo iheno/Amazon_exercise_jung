@@ -136,7 +136,6 @@ async function getData() {
     specialData.classList.add('special__data');
     productBodyPrime.classList.add('product__body__prime');
     primeIco.classList.add('prime-ico-small');
-    primeIco.classList.add('prime-ico-small');
 
     carouselItemBox.appendChild(productImage); // imageHires
     carouselItemBox.appendChild(productBody);
@@ -162,8 +161,7 @@ async function getData() {
     productBodyInfoReviewCount.append(item.ratingCount);
     primeIco.append(
       item.isPrimeEligible === true
-        ? primeIco.classList.add('prime-ico')
-        : primeIco.classList.remove('prime-ico')
+        ? primeIco.classList.add('prime-ico') : null
     );
     specialData.append(item.releaseDate);
     starIco.append(item.rating);

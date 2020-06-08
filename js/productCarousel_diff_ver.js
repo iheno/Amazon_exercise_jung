@@ -57,7 +57,6 @@ function carousel() {
       specialData.classList.add('special__data');
       productBodyPrime.classList.add('product__body__prime');
       primeIco.classList.add('prime-ico-small');
-      primeIco.classList.add('prime-ico-small');
 
       carouselItemBox.appendChild(productImage); // imageHires
       carouselItemBox.appendChild(productBody);
