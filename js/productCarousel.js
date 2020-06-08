@@ -44,14 +44,13 @@ async function getData() {
     productBodyInfoReviewStar.classList.add(
       'product__body__info__review__star'
     );
-    starIco.classList.add('star-ico', 'star-ico-small');
+    starIco.classList.add('star-ico', 'star-ico-small', 'star-small-4');
     productBodyInfoReviewCount.classList.add(
       'product__body__info__review__count'
     );
     productBodyInfoOffers.classList.add('product__body__info__offers');
     specialData.classList.add('special__data');
     productBodyPrime.classList.add('product__body__prime');
-    primeIco.classList.add('prime-ico-small');
     primeIco.classList.add('prime-ico-small');
 
     carouselItemBox.appendChild(productImage); // imageHires
@@ -82,29 +81,6 @@ async function getData() {
         : primeIco.classList.remove('prime-ico')
     );
     specialData.append(item.releaseDate);
-    starIco.append(item.rating);
-    switch (item.rating) {
-      case 0:
-        starIco.classList.add('star-small-0');
-        break;
-      case 1:
-        starIco.classList.add('star-small-1');
-        break;
-      case 2:
-        starIco.classList.add('star-small-2');
-        break;
-      case 3:
-        starIco.classList.add('star-small-3');
-        break;
-      case 4:
-        starIco.classList.add('star-small-4');
-        break;
-      default:
-        starIco.classList.add('star-small-5');
-        break;
-    }
-
-    console.log(item.rating);
   }
   productBox.appendChild(fragment);
 

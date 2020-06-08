@@ -156,7 +156,7 @@ async function getData() {
     carouselItem.appendChild(carouselItemBox);
     fragment.appendChild(carouselItem);
 
-    productImage.innerHTML = `<img src="${item.imageHires}" />`;
+    productImage.innerHTML = `${item.imageHires}`;
     productTitle.append(item.title);
     normalPrice.append(item.variations[0].price);
     productBodyInfoReviewCount.append(item.ratingCount);
